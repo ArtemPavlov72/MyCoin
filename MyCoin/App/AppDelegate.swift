@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MyCoin
 //
-//  Created by Артем Павлов on 09.01.2023.
+//  Created by Artem Pavlov on 09.01.2023.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = ViewController()
+        window?.rootViewController = LoginViewController()
         
         return true
     }
