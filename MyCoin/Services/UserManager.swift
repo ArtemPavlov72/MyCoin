@@ -13,7 +13,7 @@ class UserSettingManager {
     
     private let defaults = UserDefaults.standard
     private let key = "user"
-    private let userNotRegistered = User(name: "", isRegistered: false)
+    private let userNotRegistered = User(name: "", password: "", isRegistered: false)
     
     private init() {}
     

@@ -8,15 +8,16 @@
 import Foundation
 
 protocol LoginViewModelProtocol {
-    func enterButtonPressed(with userName: String)
+    func enterButtonPressed(with name: String, and password: String)
 }
 
 class LoginViewViewModel: LoginViewModelProtocol {
     
     //MARK: - Public Methods
-    func enterButtonPressed(with userName: String) {
+    func enterButtonPressed(with name: String, and password: String) {
         let user = User(
-            name: userName,
+            name: name,
+            password: password,
             isRegistered: true
         )
         UserSettingManager.shared.save(user: user)

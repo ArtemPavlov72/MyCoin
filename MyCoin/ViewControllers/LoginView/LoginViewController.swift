@@ -15,14 +15,21 @@ class LoginViewController: UIViewController {
     //MARK: - Private Properties
     private lazy var nameTextField: UITextField = {
         let name = UITextField()
-        name.layer.cornerRadius = 15
+        name.borderStyle = .roundedRect
         name.placeholder = "Enter your name"
         return name
     }()
     
+    private lazy var passwordTextField: UITextField = {
+        let password = UITextField()
+        password.borderStyle = .roundedRect
+        password.placeholder = "Enter password"
+        return password
+    }()
+    
     private lazy var enterButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 15
+        button.layer.cornerRadius = 8
         button.setTitle("Log In", for: .normal)
         button.backgroundColor = .systemGray2
         button.setTitleColor(UIColor.systemGray6, for: .normal)
@@ -34,18 +41,17 @@ class LoginViewController: UIViewController {
     private lazy var verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = NSLayoutConstraint.Axis.vertical
-        stackView.spacing = 10.0
+        stackView.spacing = 14.0
         stackView.addArrangedSubview(nameTextField)
+        stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(enterButton)
         return stackView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-       // viewModel = LoginViewViewModel()
+        view.backgroundColor = .systemBackground
         nameTextField.delegate = self
-        
         setupSubViews(verticalStackView)
         setupConstraints()
     }
@@ -63,14 +69,17 @@ class LoginViewController: UIViewController {
         NSLayoutConstraint.activate([
             verticalStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             verticalStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            verticalStackView.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.7)
         ])
     }
     
     @objc private func enterButtonTapped() {
-        guard let inputText = nameTextField.text, !inputText.isEmpty else {return}
-        let nameTrimmingText = inputText.trimmingCharacters(in: .whitespaces)
+        guard let inputNameText = nameTextField.text, !inputNameText.isEmpty else {return}
+        let nameTrimmingText = inputNameText.trimmingCharacters(in: .whitespaces)
         
-        viewModel.enterButtonPressed(with: nameTrimmingText)
+        guard let inputPasswordText = passwordTextField.text, !inputPasswordText.isEmpty else {return}
+        
+        viewModel.enterButtonPressed(with: nameTrimmingText, and: inputPasswordText)
                 
         let coinVC = CoinTableViewController()
         coinVC.navigationItem.hidesBackButton = true
