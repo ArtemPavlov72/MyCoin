@@ -12,7 +12,20 @@ class CoinTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .systemBrown
-        
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .close, //поменять стиль кнопки логаута
+            target: self,
+            action: #selector(logOut)
+        )
+    }
+    
+    @objc private func logOut() {
+        UserSettingManager.shared.deleteUserData()
+        AppDelegate.shared.rootViewController.switchToLogout()
     }
 
     // MARK: - Table view data source
