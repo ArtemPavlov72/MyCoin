@@ -17,6 +17,8 @@
 		AC01B7AC296D42CA004D3FC0 /* CoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01B7AB296D42CA004D3FC0 /* CoinTableViewController.swift */; };
 		AC01B7AF296DC92D004D3FC0 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01B7AE296DC92D004D3FC0 /* UserManager.swift */; };
 		AC01B7B1296DC961004D3FC0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01B7B0296DC961004D3FC0 /* User.swift */; };
+		AC01B7B3296E81F0004D3FC0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01B7B2296E81F0004D3FC0 /* RootViewController.swift */; };
+		AC01B7B6296E8217004D3FC0 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01B7B5296E8217004D3FC0 /* RootViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		AC01B7AB296D42CA004D3FC0 /* CoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewController.swift; sourceTree = "<group>"; };
 		AC01B7AE296DC92D004D3FC0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		AC01B7B0296DC961004D3FC0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AC01B7B2296E81F0004D3FC0 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		AC01B7B5296E8217004D3FC0 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		AC01B7A0296D04B6004D3FC0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AC01B7B4296E81F7004D3FC0 /* RootViewController */,
 				AC01B7AA296D4294004D3FC0 /* LoginView */,
 				AC01B7AD296D42F9004D3FC0 /* CoinTableView */,
 			);
@@ -133,6 +138,15 @@
 				AC01B7AB296D42CA004D3FC0 /* CoinTableViewController.swift */,
 			);
 			path = CoinTableView;
+			sourceTree = "<group>";
+		};
+		AC01B7B4296E81F7004D3FC0 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AC01B7B2296E81F0004D3FC0 /* RootViewController.swift */,
+				AC01B7B5296E8217004D3FC0 /* RootViewModel.swift */,
+			);
+			path = RootViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,8 +219,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC01B7B6296E8217004D3FC0 /* RootViewModel.swift in Sources */,
 				AC01B7A6296D2F28004D3FC0 /* NetworkManager.swift in Sources */,
 				AC01B7A3296D2EB7004D3FC0 /* Coin.swift in Sources */,
+				AC01B7B3296E81F0004D3FC0 /* RootViewController.swift in Sources */,
 				AC01B7AF296DC92D004D3FC0 /* UserManager.swift in Sources */,
 				AC01B7AC296D42CA004D3FC0 /* CoinTableViewController.swift in Sources */,
 				AC01B7B1296DC961004D3FC0 /* User.swift in Sources */,

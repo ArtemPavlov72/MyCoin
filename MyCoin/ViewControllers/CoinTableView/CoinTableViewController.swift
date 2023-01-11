@@ -11,8 +11,8 @@ class CoinTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .yellow
-       
+        tableView.backgroundColor = .systemBrown
+        
     }
 
     // MARK: - Table view data source
@@ -24,7 +24,7 @@ class CoinTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return 10
     }
 
 }

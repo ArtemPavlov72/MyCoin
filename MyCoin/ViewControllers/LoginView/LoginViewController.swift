@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     //MARK: - Private Properties
-    private var viewModel: LoginViewModelProtocol!
+    var viewModel: LoginViewModelProtocol!
 
     //MARK: - Private Properties
     private lazy var nameTextField: UITextField = {
@@ -43,8 +43,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        viewModel = LoginViewViewModel()
+       // viewModel = LoginViewViewModel()
         nameTextField.delegate = self
+        
         setupSubViews(verticalStackView)
         setupConstraints()
     }
@@ -72,6 +73,7 @@ class LoginViewController: UIViewController {
         viewModel.enterButtonPressed(with: nameTrimmingText)
                 
         let coinVC = CoinTableViewController()
+        coinVC.navigationItem.hidesBackButton = true
         show(coinVC, sender: nil)
     }
 }

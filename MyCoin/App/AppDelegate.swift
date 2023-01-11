@@ -16,13 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = LoginViewController()
+        window?.rootViewController = RootViewController()
+        switchRootViewController()
         
         return true
     }
 
+    //MARK: - Switch ViewControllers Methods
+    private func switchRootViewController() {
+        if UserSettingManager.shared.isRegistered() {
+            AppDelegate.shared.rootViewController.switchToMainScreen()
+        } else {
+            AppDelegate.shared.rootViewController.showLoginScreen()
+        }
+    }
+}
 
-
-
+//MARK: - AppDelegate User Flow
+extension AppDelegate {
+    static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
+    var rootViewController: RootViewController {
+        return window?.rootViewController as! RootViewController
+    }
 }
 

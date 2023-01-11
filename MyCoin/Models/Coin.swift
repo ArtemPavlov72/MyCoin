@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Coin: Codable {
+    let data: CoinData
+}
+
+struct CoinData: Codable {
+    
+}
