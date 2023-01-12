@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     private lazy var nameTextField: UITextField = {
         let name = UITextField()
         name.borderStyle = .roundedRect
+        name.returnKeyType = .next
         name.placeholder = "Enter your name"
         return name
     }()
@@ -23,6 +24,8 @@ class LoginViewController: UIViewController {
     private lazy var passwordTextField: UITextField = {
         let password = UITextField()
         password.borderStyle = .roundedRect
+        password.returnKeyType = .done
+        password.isSecureTextEntry = true
         password.placeholder = "Enter password"
         return password
     }()
@@ -73,11 +76,15 @@ class LoginViewController: UIViewController {
         ])
     }
     
+    //вынести лишнюю логику в модель
+    //добавить алерт при проверке имени и пароля
     @objc private func enterButtonTapped() {
         guard let inputNameText = nameTextField.text, !inputNameText.isEmpty else {return}
         let nameTrimmingText = inputNameText.trimmingCharacters(in: .whitespaces)
+        guard nameTrimmingText == DataManager.shared.fakeUser.name else {return}
         
         guard let inputPasswordText = passwordTextField.text, !inputPasswordText.isEmpty else {return}
+        guard inputPasswordText == DataManager.shared.fakeUser.password else {return}
         
         viewModel.enterButtonPressed(with: nameTrimmingText, and: inputPasswordText)
                 
@@ -95,7 +102,11 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        enterButtonTapped()
+        if textField == nameTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            enterButtonTapped()
+        }
         return true
     }
 }

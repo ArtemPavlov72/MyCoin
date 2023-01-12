@@ -7,9 +7,9 @@
 
 import Foundation
 
-class UserSettingManager {
+class UserManager {
     
-    static let shared = UserSettingManager()
+    static let shared = UserManager()
     
     private let defaults = UserDefaults.standard
     private let key = "user"

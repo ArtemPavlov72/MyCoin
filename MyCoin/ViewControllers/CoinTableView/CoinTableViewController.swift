@@ -24,7 +24,7 @@ class CoinTableViewController: UITableViewController {
     }
     
     @objc private func logOut() {
-        UserSettingManager.shared.deleteUserData()
+        UserManager.shared.deleteUserData()
         AppDelegate.shared.rootViewController.switchToLogout()
     }
 

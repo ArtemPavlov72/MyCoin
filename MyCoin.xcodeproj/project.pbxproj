@@ -20,6 +20,7 @@
 		AC01B7B3296E81F0004D3FC0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01B7B2296E81F0004D3FC0 /* RootViewController.swift */; };
 		AC01B7B6296E8217004D3FC0 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01B7B5296E8217004D3FC0 /* RootViewModel.swift */; };
 		AC01B7B8296E9417004D3FC0 /* CoinTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01B7B7296E9417004D3FC0 /* CoinTableViewModel.swift */; };
+		ACD4D9C8296F244500A12A8C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D9C7296F244500A12A8C /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		AC01B7B2296E81F0004D3FC0 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AC01B7B5296E8217004D3FC0 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		AC01B7B7296E9417004D3FC0 /* CoinTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewModel.swift; sourceTree = "<group>"; };
+		ACD4D9C7296F244500A12A8C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				AC01B7A5296D2F28004D3FC0 /* NetworkManager.swift */,
 				AC01B7AE296DC92D004D3FC0 /* UserManager.swift */,
+				ACD4D9C7296F244500A12A8C /* DataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC01B7B6296E8217004D3FC0 /* RootViewModel.swift in Sources */,
+				ACD4D9C8296F244500A12A8C /* DataManager.swift in Sources */,
 				AC01B7A6296D2F28004D3FC0 /* NetworkManager.swift in Sources */,
 				AC01B7A3296D2EB7004D3FC0 /* Coin.swift in Sources */,
 				AC01B7B3296E81F0004D3FC0 /* RootViewController.swift in Sources */,

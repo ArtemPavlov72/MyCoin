@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: - Switch ViewControllers Methods
     private func switchRootViewController() {
-        if UserSettingManager.shared.isRegistered() {
+        if UserManager.shared.isRegistered() {
             AppDelegate.shared.rootViewController.switchToMainScreen()
         } else {
             AppDelegate.shared.rootViewController.showLoginScreen()

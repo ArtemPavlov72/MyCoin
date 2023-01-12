@@ -14,13 +14,13 @@ protocol LoginViewModelProtocol {
 class LoginViewViewModel: LoginViewModelProtocol {
     
     //MARK: - Public Methods
+    //проверка по ключу регистрации добавить
     func enterButtonPressed(with name: String, and password: String) {
         let user = User(
             name: name,
             password: password,
             isRegistered: true
         )
-        UserSettingManager.shared.save(user: user)
+        UserManager.shared.save(user: user)
     }
-    
 }
