@@ -9,7 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    //MARK: - Private Properties
+    //MARK: - Public Properties
     var viewModel: LoginViewModelProtocol!
 
     //MARK: - Private Properties
@@ -88,6 +88,7 @@ class LoginViewController: UIViewController {
         
         viewModel.enterButtonPressed(with: nameTrimmingText, and: inputPasswordText)
                 
+        //потом убратьв модель таблички
         let coinVC = CoinTableViewController()
         coinVC.navigationItem.hidesBackButton = true
         show(coinVC, sender: nil)
