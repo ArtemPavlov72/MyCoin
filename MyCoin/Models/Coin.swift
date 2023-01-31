@@ -20,11 +20,13 @@ struct CoinData: Codable {
 
 struct MarketData: Codable {
     let price_usd: Double
+    let percent_change_usd_last_1_hour: Double
     let percent_change_usd_last_24_hours: Double
 }
 
 struct Marketcap: Codable {
     let rank: Int
+    let current_marketcap_usd: Double
 }
 
 

@@ -9,25 +9,31 @@ import UIKit
 
 class CoinTableViewController: UITableViewController {
     
+    //MARK: - Private Properties
     private var coins: [Coin] = []
     private var spinnerView: UIActivityIndicatorView?
     
+    //MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .systemBrown
+        tableView.backgroundColor = .systemBackground
         tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: CoinTableViewCell.reuseId)
         setupNavigationBar()
         loadCoins()
     }
     
+    //MARK: - Private Methods
     private func setupNavigationBar() {
+        title = "MyCoin"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .close, //поменять стиль кнопки логаута
+            title: "Logout",
+            style: .plain, //поменять стиль кнопки логаута
             target: self,
             action: #selector(logOut)
         )
     }
-    
     
     private func loadCoins() {
         if let navigationController = navigationController {
@@ -84,11 +90,15 @@ class CoinTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CoinTableViewCell.reuseId, for: indexPath) as? CoinTableViewCell else { return  CoinTableViewCell() }
         let coin = coins[indexPath.row]
         cell.configure(with: coin)
-        
-//        var content = cell.defaultContentConfiguration()
-//        content.text = coin.data.name
-//        content.secondaryText = coin.data.market_data.price_usd.description
-//        cell.contentConfiguration = content
         return cell
+    }
+    
+    //MARK: - Table View Delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let coin = coins[indexPath.row]
+        let coinDetailsVC = CoinDetailsViewController()
+        coinDetailsVC.coin = coin
+        show(coinDetailsVC, sender: nil)
     }
 }

@@ -31,8 +31,8 @@ class CoinTableViewCell: UITableViewCell {
     //MARK: - Public Methods
     func configure(with coin: Coin) {
         coinNameLabel.text = coin.data.name
-        coinPriceLabel.text = String(format: "%.2f", coin.data.market_data.price_usd) + "$"
-        coinChangeLabel.text = String(format: "%.2f", coin.data.market_data.percent_change_usd_last_24_hours) + "%"
+        coinPriceLabel.text = String(format: "%.6f", coin.data.market_data.price_usd) + " $"
+        coinChangeLabel.text = String(format: "%.2f", coin.data.market_data.percent_change_usd_last_24_hours) + " %"
     }
     
     //MARK: - Private Methods
