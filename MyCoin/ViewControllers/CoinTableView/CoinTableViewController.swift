@@ -17,6 +17,7 @@ class CoinTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .systemBackground
+        tableView.rowHeight = 70
         tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: CoinTableViewCell.reuseId)
         setupNavigationBar()
         loadCoins()
@@ -27,9 +28,9 @@ class CoinTableViewController: UITableViewController {
         title = "MyCoin"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "Logout",
-            style: .plain, //поменять стиль кнопки логаута
+            style: .plain,
             target: self,
             action: #selector(logOut)
         )
