@@ -9,10 +9,7 @@ import UIKit
 
 class CoinTableViewController: UITableViewController {
     
-    //MARK: - Private Properties
-    
-    private var spinnerView: UIActivityIndicatorView?
-    
+    //MARK: - Public Properties
     var viewModel: CoinTableViewModelProtocol! {
         didSet {
             viewModel.fetchCoins {
@@ -22,6 +19,9 @@ class CoinTableViewController: UITableViewController {
         }
     }
     
+    //MARK: - Private Properties
+    private var spinnerView: UIActivityIndicatorView?
+
     //MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +60,7 @@ class CoinTableViewController: UITableViewController {
     }
     
     @objc private func logOut() {
-        UserManager.shared.deleteUserData()
-        AppDelegate.shared.rootViewController.switchToLogout()
+        viewModel.logoutButtonPressed()
     }
 
     // MARK: - Table view data source

@@ -24,6 +24,7 @@
 		AC8939AC2986963C00219844 /* CoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939AB2986963C00219844 /* CoinDetailsViewController.swift */; };
 		AC8939AF298C3DA900219844 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939AE298C3DA900219844 /* UIResponder.swift */; };
 		AC8939B2298CEFDB00219844 /* CoinTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939B1298CEFDB00219844 /* CoinTableViewCellModel.swift */; };
+		AC8939B5298EB56B00219844 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939B4298EB56B00219844 /* CoinDetailsViewModel.swift */; };
 		ACD4D9C8296F244500A12A8C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D9C7296F244500A12A8C /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		AC8939AB2986963C00219844 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
 		AC8939AE298C3DA900219844 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		AC8939B1298CEFDB00219844 /* CoinTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCellModel.swift; sourceTree = "<group>"; };
+		AC8939B4298EB56B00219844 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
 		ACD4D9C7296F244500A12A8C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				AC8939AB2986963C00219844 /* CoinDetailsViewController.swift */,
+				AC8939B4298EB56B00219844 /* CoinDetailsViewModel.swift */,
 			);
 			path = CoinDetailsView;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				AC01B790296C96B5004D3FC0 /* LoginViewController.swift in Sources */,
 				AC01B7A9296D3AA9004D3FC0 /* LoginViewModel.swift in Sources */,
 				AC8939AF298C3DA900219844 /* UIResponder.swift in Sources */,
+				AC8939B5298EB56B00219844 /* CoinDetailsViewModel.swift in Sources */,
 				AC01B78C296C96B5004D3FC0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
