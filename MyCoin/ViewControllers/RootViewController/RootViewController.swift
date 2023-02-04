@@ -56,7 +56,7 @@ class RootViewController: UIViewController {
     
     func switchToMainScreen() {
         let mainViewController = CoinTableViewController()
-        mainViewController.viewModel = viewModel.coinTableViewModel() // заменить
+        mainViewController.viewModel = viewModel.coinTableViewModel()
         let mainScreen = UINavigationController(rootViewController:  mainViewController)
         animateTransition(to: mainScreen, isLogout: false)
     }

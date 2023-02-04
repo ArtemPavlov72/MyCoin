@@ -75,28 +75,21 @@ class LoginViewController: UIViewController {
         ])
     }
     
-    //вынести лишнюю логику в модель
     //добавить алерт при проверке имени и пароля
     @objc private func enterButtonTapped() {
         guard let inputNameText = nameTextField.text, !inputNameText.isEmpty else {return}
-        let nameTrimmingText = inputNameText.trimmingCharacters(in: .whitespaces)
-        guard nameTrimmingText == DataManager.shared.fakeUser.name else {return}
-        
         guard let inputPasswordText = passwordTextField.text, !inputPasswordText.isEmpty else {return}
-        guard inputPasswordText == DataManager.shared.fakeUser.password else {return}
         
-        viewModel.enterButtonPressed(with: nameTrimmingText, and: inputPasswordText)
-                
-        let coinTableVC = CoinTableViewController()
-        coinTableVC.viewModel = viewModel.coinTableViewModel()
-   
-        AppDelegate.shared.rootViewController.switchToMainScreen()
+        viewModel.enterButtonPressed(with: inputNameText, and: inputPasswordText) {
+            let coinTableVC = CoinTableViewController()
+            coinTableVC.viewModel = self.viewModel.coinTableViewModel()
+        }
     }
 }
 
 //MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
-   
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
@@ -111,4 +104,3 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
-
