@@ -9,11 +9,11 @@ import Foundation
 
 protocol LoginViewModelProtocol {
     func enterButtonPressed(with name: String, and password: String)
+    func coinTableViewModel() -> CoinTableViewModelProtocol
 }
 
 class LoginViewViewModel: LoginViewModelProtocol {
-    
-    //MARK: - Public Methods
+
     //проверка по ключу регистрации добавить
     func enterButtonPressed(with name: String, and password: String) {
         let user = User(
@@ -22,5 +22,9 @@ class LoginViewViewModel: LoginViewModelProtocol {
             isRegistered: true
         )
         UserManager.shared.save(user: user)
+    }
+    
+    func coinTableViewModel() -> CoinTableViewModelProtocol {
+        CoinTableViewModel()
     }
 }

@@ -88,10 +88,10 @@ class LoginViewController: UIViewController {
         
         viewModel.enterButtonPressed(with: nameTrimmingText, and: inputPasswordText)
                 
-        //потом убратьв модель таблички
-        let coinVC = CoinTableViewController()
-        coinVC.navigationItem.hidesBackButton = true
-        show(coinVC, sender: nil)
+        let coinTableVC = CoinTableViewController()
+        coinTableVC.viewModel = viewModel.coinTableViewModel()
+   
+        AppDelegate.shared.rootViewController.switchToMainScreen()
     }
 }
 

@@ -9,10 +9,15 @@ import Foundation
 
 protocol RootViewModelDelegate {
     func loginViewModel() -> LoginViewModelProtocol
+    func coinTableViewModel() -> CoinTableViewModelProtocol
 }
 
 class RootViewModel: RootViewModelDelegate {
     func loginViewModel() -> LoginViewModelProtocol {
         LoginViewViewModel()
+    }
+    
+    func coinTableViewModel() -> CoinTableViewModelProtocol {
+        CoinTableViewModel()
     }
 }

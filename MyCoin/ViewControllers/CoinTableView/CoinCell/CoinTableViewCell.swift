@@ -27,6 +27,14 @@ class CoinTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    var viewModel: CoinCellViewModelProtocol! {
+        didSet {
+            coinNameLabel.text = viewModel.coinName
+            coinPriceLabel.text = viewModel.coinPrice
+            coinChangeLabel.text = viewModel.coinChange
+        }
+    }
+    
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,16 +48,16 @@ class CoinTableViewCell: UITableViewCell {
     
     //MARK: - Public Methods
     func configure(with coin: Coin) {
-        coinNameLabel.text = coin.data.name
+      //  coinNameLabel.text = coin.data.name
         coinNameLabel.font = UIFont.systemFont(ofSize: 20)
         
-        coinPriceLabel.text = formatNumber(number: coin.data.market_data.price_usd)
+     //   coinPriceLabel.text = formatNumber(number: coin.data.market_data.price_usd)
         
         coinChangeLabel.textColor = coin.data.market_data.percent_change_usd_last_1_hour < 0
         ? .systemRed
         : .systemGreen
         
-        coinChangeLabel.text = String(format: "%.2f", coin.data.market_data.percent_change_usd_last_1_hour) + " %"
+     //   coinChangeLabel.text = String(format: "%.2f", coin.data.market_data.percent_change_usd_last_1_hour) + " %"
     }
     
     //MARK: - Private Methods

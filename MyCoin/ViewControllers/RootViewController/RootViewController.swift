@@ -56,7 +56,7 @@ class RootViewController: UIViewController {
     
     func switchToMainScreen() {
         let mainViewController = CoinTableViewController()
-      //  mainViewController.viewModel = viewModel.tabBarStartViewModel() // заменить
+        mainViewController.viewModel = viewModel.coinTableViewModel() // заменить
         let mainScreen = UINavigationController(rootViewController:  mainViewController)
         animateFadeTransition(to: mainScreen)
     }

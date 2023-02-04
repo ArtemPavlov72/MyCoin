@@ -23,6 +23,7 @@
 		AC8939AA29856B5500219844 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939A929856B5500219844 /* CoinTableViewCell.swift */; };
 		AC8939AC2986963C00219844 /* CoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939AB2986963C00219844 /* CoinDetailsViewController.swift */; };
 		AC8939AF298C3DA900219844 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939AE298C3DA900219844 /* UIResponder.swift */; };
+		AC8939B2298CEFDB00219844 /* CoinTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939B1298CEFDB00219844 /* CoinTableViewCellModel.swift */; };
 		ACD4D9C8296F244500A12A8C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D9C7296F244500A12A8C /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		AC8939A929856B5500219844 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		AC8939AB2986963C00219844 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
 		AC8939AE298C3DA900219844 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
+		AC8939B1298CEFDB00219844 /* CoinTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCellModel.swift; sourceTree = "<group>"; };
 		ACD4D9C7296F244500A12A8C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +151,7 @@
 			children = (
 				AC01B7AB296D42CA004D3FC0 /* CoinTableViewController.swift */,
 				AC01B7B7296E9417004D3FC0 /* CoinTableViewModel.swift */,
-				AC8939A929856B5500219844 /* CoinTableViewCell.swift */,
+				AC8939B3298CEFF700219844 /* CoinCell */,
 				AC8939AD2986964300219844 /* CoinDetailsView */,
 			);
 			path = CoinTableView;
@@ -178,6 +180,15 @@
 				AC8939AE298C3DA900219844 /* UIResponder.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AC8939B3298CEFF700219844 /* CoinCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC8939A929856B5500219844 /* CoinTableViewCell.swift */,
+				AC8939B1298CEFDB00219844 /* CoinTableViewCellModel.swift */,
+			);
+			path = CoinCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +265,7 @@
 				ACD4D9C8296F244500A12A8C /* DataManager.swift in Sources */,
 				AC8939AC2986963C00219844 /* CoinDetailsViewController.swift in Sources */,
 				AC01B7A6296D2F28004D3FC0 /* NetworkManager.swift in Sources */,
+				AC8939B2298CEFDB00219844 /* CoinTableViewCellModel.swift in Sources */,
 				AC01B7A3296D2EB7004D3FC0 /* Coin.swift in Sources */,
 				AC01B7B3296E81F0004D3FC0 /* RootViewController.swift in Sources */,
 				AC01B7AF296DC92D004D3FC0 /* UserManager.swift in Sources */,
