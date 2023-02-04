@@ -54,7 +54,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        nameTextField.delegate = self
         setupSubViews(verticalStackView)
         setupConstraints()
     }
@@ -97,6 +96,7 @@ class LoginViewController: UIViewController {
 
 //MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
+   
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
@@ -111,6 +111,4 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
-
-
 

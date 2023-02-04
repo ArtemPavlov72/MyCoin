@@ -25,16 +25,19 @@ class CoinTableViewController: UITableViewController {
     //MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .systemBackground
-        tableView.rowHeight = 70
-        tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: CoinTableViewCell.reuseId)
+        setupTableView()
         setupNavigationBar()
-        if let navigationController = navigationController {
-            spinnerView = showSpinner(in: navigationController.view)
-        }
+        guard let navigationController = navigationController else { return }
+        spinnerView = showSpinner(in: navigationController.view)
     }
     
     //MARK: - Private Methods
+    private func setupTableView() {
+        tableView.backgroundColor = .systemBackground
+        tableView.rowHeight = 70
+        tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: CoinTableViewCell.reuseId)
+    }
+    
     private func setupNavigationBar() {
         title = "MyCoin"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -49,13 +52,10 @@ class CoinTableViewController: UITableViewController {
     
     private func showSpinner(in view: UIView) -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(frame: view.bounds)
-        
         activityIndicator.style = .large
         activityIndicator.startAnimating()
-   
         activityIndicator.hidesWhenStopped = true
         view.addSubview(activityIndicator)
-        
         return activityIndicator
     }
     
