@@ -2,7 +2,7 @@
 //  CoinDetailsViewController.swift
 //  MyCoin
 //
-//  Created by Артем Павлов on 29.01.2023.
+//  Created by Artem Pavlov on 29.01.2023.
 //
 
 import UIKit
@@ -10,64 +10,21 @@ import UIKit
 class CoinDetailsViewController: UIViewController {
     
     //MARK: - Public Properties
-    var coin: Coin?
+    var viewModel: CoinDetailsViewModelProtocol!
     
     //MARK: - Private Properties
-    private lazy var coinSymbolLabel: UILabel = {
-        let text = UILabel()
-        text.font = UIFont.systemFont(ofSize: 14)
-        return text
-    }()
-    
-    private lazy var coinNameLabel: UILabel = {
-        let text = UILabel()
-        text.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
-        return text
-    }()
-    
-    private lazy var coinPriceLabel: UILabel = {
-        let text = UILabel()
-        text.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
-        text.textColor = .systemCyan
-        return text
-    }()
-    
-    private lazy var descriptionLabel: UILabel = {
-        let text = UILabel()
-        text.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
-        text.textAlignment = .left
-        text.text = "About \(coinNameLabel.text ?? "")"
-        return text
-    }()
-        
-    private lazy var rankLabel: UILabel = {
-        let text = UILabel()
-        text.text = "Rank"
-        return text
-    }()
-    
-    private lazy var marketCapLabel: UILabel = {
-        let text = UILabel()
-        text.text = "Marketcap"
-        return text
-    }()
-    
-    private lazy var change1hLabel: UILabel = {
-        let text = UILabel()
-        text.text = "Changes in 1 hour"
-        return text
-    }()
-    
-    private lazy var change24hLabel: UILabel = {
-        let text = UILabel()
-        text.text = "Changes in 24 hours"
-        return text
-    }()
-    
-    private lazy var coinRankInfoLabel = UILabel()
-    private lazy var marketCapInfoLabel = UILabel()
-    private lazy var coinChange1hInfoLabel = UILabel()
-    private lazy var coinChange24hInfoLabel = UILabel()
+    private var coinSymbolLabel = UILabel()
+    private var coinNameLabel = UILabel()
+    private var coinPriceLabel = UILabel()
+    private var descriptionLabel = UILabel()
+    private var rankLabel = UILabel()
+    private var coinRankInfoLabel = UILabel()
+    private var marketCapLabel = UILabel()
+    private var marketCapInfoLabel = UILabel()
+    private var change1hLabel = UILabel()
+    private var coinChange1hInfoLabel = UILabel()
+    private var change24hLabel = UILabel()
+    private var coinChange24hInfoLabel = UILabel()
     
     //MARK: - Stack Properties
     private lazy var rankStackView: UIStackView = {
@@ -133,20 +90,38 @@ class CoinDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        configureData()
+        setupUI()
         setupSubViews(mainInfoStackView, descriptionStackView)
         setupConstraints()
     }
     
     //MARK: - Private Methods
-    private func configureData() {
-        coinSymbolLabel.text = coin?.data.symbol
-        coinNameLabel.text = coin?.data.name
-        coinPriceLabel.text = formatNumber(number: coin?.data.market_data.price_usd)
-        coinRankInfoLabel.text = coin?.data.marketcap.rank.description
-        marketCapInfoLabel.text = formatNumber(number: coin?.data.marketcap.current_marketcap_usd, fixLenght: false)
-        coinChange1hInfoLabel.text = String(format: "%.2f", coin?.data.market_data.percent_change_usd_last_1_hour ?? 0) + " %"
-        coinChange24hInfoLabel.text = String(format: "%.2f", coin?.data.market_data.percent_change_usd_last_24_hours ?? 0) + " %"
+    private func setupUI() {
+        coinSymbolLabel.text = viewModel.coinSymbol
+        coinSymbolLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        coinNameLabel.text = viewModel.coinName
+        coinNameLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
+        
+        coinPriceLabel.text = viewModel.coinPrice
+        coinPriceLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
+        coinPriceLabel.textColor = .systemCyan
+        
+        descriptionLabel.text = viewModel.description
+        descriptionLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
+        descriptionLabel.textAlignment = .left
+        
+        rankLabel.text = viewModel.rank
+        coinRankInfoLabel.text = viewModel.coinRankInfo
+        
+        marketCapLabel.text = viewModel.marketCap
+        marketCapInfoLabel.text = viewModel.marketCapInfo
+        
+        change1hLabel.text = viewModel.coinChange1h
+        coinChange1hInfoLabel.text = viewModel.coinChange1hInfo
+        
+        change24hLabel.text = viewModel.coinChange24h
+        coinChange24hInfoLabel.text = viewModel.coinChange24hInfo
     }
     
     private func setupSubViews(_ subViews: UIView...) {

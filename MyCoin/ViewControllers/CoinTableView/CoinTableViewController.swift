@@ -21,7 +21,7 @@ class CoinTableViewController: UITableViewController {
     
     //MARK: - Private Properties
     private var spinnerView: UIActivityIndicatorView?
-
+    
     //MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ class CoinTableViewController: UITableViewController {
     @objc private func logOut() {
         viewModel.logoutButtonPressed()
     }
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfRows()
@@ -75,11 +75,11 @@ class CoinTableViewController: UITableViewController {
     }
     
     //MARK: - Table View Delegate
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        let coin = coins[indexPath.row]
-//        let coinDetailsVC = CoinDetailsViewController()
-//        coinDetailsVC.coin = coin
-//        show(coinDetailsVC, sender: nil)
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let coinDetailsViewModel = viewModel.coinDetailsViewModel(at: indexPath)
+        let coinDetailsViewController = CoinDetailsViewController()
+        coinDetailsViewController.viewModel = coinDetailsViewModel
+        show(coinDetailsViewController, sender: nil)
+    }
 }

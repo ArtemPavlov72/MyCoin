@@ -12,6 +12,7 @@ protocol CoinTableViewModelProtocol {
     func numberOfRows() -> Int
     func cellViewModel(at indexPath: IndexPath) -> CoinCellViewModelProtocol
     func logoutButtonPressed()
+    func coinDetailsViewModel(at indexPath: IndexPath) -> CoinDetailsViewModelProtocol
 }
 
 class CoinTableViewModel: CoinTableViewModelProtocol {
@@ -54,5 +55,10 @@ class CoinTableViewModel: CoinTableViewModelProtocol {
     func logoutButtonPressed() {
         UserManager.shared.deleteUserData()
         AppDelegate.shared.rootViewController.switchToLogout()
+    }
+    
+    func coinDetailsViewModel(at indexPath: IndexPath) -> CoinDetailsViewModelProtocol {
+        let coin = coins[indexPath.row]
+        return CoinDetailsViewModel(coin: coin)
     }
 }

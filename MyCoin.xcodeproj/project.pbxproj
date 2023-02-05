@@ -22,7 +22,6 @@
 		AC01B7B8296E9417004D3FC0 /* CoinTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01B7B7296E9417004D3FC0 /* CoinTableViewModel.swift */; };
 		AC8939AA29856B5500219844 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939A929856B5500219844 /* CoinTableViewCell.swift */; };
 		AC8939AC2986963C00219844 /* CoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939AB2986963C00219844 /* CoinDetailsViewController.swift */; };
-		AC8939AF298C3DA900219844 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939AE298C3DA900219844 /* UIResponder.swift */; };
 		AC8939B2298CEFDB00219844 /* CoinTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939B1298CEFDB00219844 /* CoinTableViewCellModel.swift */; };
 		AC8939B5298EB56B00219844 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939B4298EB56B00219844 /* CoinDetailsViewModel.swift */; };
 		ACD4D9C8296F244500A12A8C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D9C7296F244500A12A8C /* DataManager.swift */; };
@@ -46,7 +45,6 @@
 		AC01B7B7296E9417004D3FC0 /* CoinTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewModel.swift; sourceTree = "<group>"; };
 		AC8939A929856B5500219844 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		AC8939AB2986963C00219844 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
-		AC8939AE298C3DA900219844 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		AC8939B1298CEFDB00219844 /* CoinTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCellModel.swift; sourceTree = "<group>"; };
 		AC8939B4298EB56B00219844 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
 		ACD4D9C7296F244500A12A8C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				AC01B7A0296D04B6004D3FC0 /* ViewControllers */,
-				AC8939B0298C3EB000219844 /* Extensions */,
 				AC01B7A7296D2F38004D3FC0 /* Services */,
 				AC01B7A4296D2EC9004D3FC0 /* Models */,
 				AC01B7A1296D04E4004D3FC0 /* Resources */,
@@ -175,14 +172,6 @@
 				AC8939B4298EB56B00219844 /* CoinDetailsViewModel.swift */,
 			);
 			path = CoinDetailsView;
-			sourceTree = "<group>";
-		};
-		AC8939B0298C3EB000219844 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				AC8939AE298C3DA900219844 /* UIResponder.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AC8939B3298CEFF700219844 /* CoinCell */ = {
@@ -278,7 +267,6 @@
 				AC8939AA29856B5500219844 /* CoinTableViewCell.swift in Sources */,
 				AC01B790296C96B5004D3FC0 /* LoginViewController.swift in Sources */,
 				AC01B7A9296D3AA9004D3FC0 /* LoginViewModel.swift in Sources */,
-				AC8939AF298C3DA900219844 /* UIResponder.swift in Sources */,
 				AC8939B5298EB56B00219844 /* CoinDetailsViewModel.swift in Sources */,
 				AC01B78C296C96B5004D3FC0 /* AppDelegate.swift in Sources */,
 			);

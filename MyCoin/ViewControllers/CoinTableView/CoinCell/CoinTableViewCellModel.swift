@@ -2,7 +2,7 @@
 //  CoinTableViewCellModel.swift
 //  MyCoin
 //
-//  Created by Артем Павлов on 03.02.2023.
+//  Created by Artem Pavlov on 03.02.2023.
 //
 
 import Foundation
@@ -29,20 +29,19 @@ class CoinTableViewCellModel: CoinCellViewModelProtocol {
     
     private let coin: Coin
     
-    private func formatNumber(number: Double?, fixLenght: Bool = true) -> String {
+    private func formatNumber(number: Double?) -> String {
         guard let number = number as? NSNumber else { return "Not a number" }
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.groupingSeparator = " "
         formatter.decimalSeparator = ","
-        formatter.maximumFractionDigits = fixLenght ? 4 : 0
+        formatter.maximumFractionDigits = 4
         
         guard let formattedNumber = formatter.string(from: number) else { return "Formatting error" }
         let numberWithFixLenghtOfDigit = String(formattedNumber.prefix(9))
-        let resultNumber = fixLenght ? numberWithFixLenghtOfDigit : formattedNumber
         
-        return resultNumber + " $"
+        return numberWithFixLenghtOfDigit + " $"
     }
     
     required init(coin: Coin) {
