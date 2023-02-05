@@ -13,7 +13,12 @@ class CoinTableViewCell: UITableViewCell {
     static let reuseId: String = "coinCell"
     
     //MARK: - Public Properties
-    private let coinNameLabel = UILabel()
+    private let coinNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20)
+        return label
+    }()
+    
     private let coinPriceLabel = UILabel()
     private let coinChangeLabel = UILabel()
     
@@ -32,6 +37,7 @@ class CoinTableViewCell: UITableViewCell {
             coinNameLabel.text = viewModel.coinName
             coinPriceLabel.text = viewModel.coinPrice
             coinChangeLabel.text = viewModel.coinChange
+            coinChangeLabel.textColor = viewModel.isChangeGrow ? .systemGreen : .systemRed
         }
     }
     
@@ -44,15 +50,6 @@ class CoinTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    //MARK: - Public Methods
-    func configure(with coin: Coin) {
-        coinNameLabel.font = UIFont.systemFont(ofSize: 20)
-        coinChangeLabel.textColor = coin.data.market_data.percent_change_usd_last_1_hour < 0
-        ? .systemRed
-        : .systemGreen
-        
     }
     
     //MARK: - Private Methods

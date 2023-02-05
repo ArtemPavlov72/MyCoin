@@ -11,6 +11,7 @@ protocol CoinCellViewModelProtocol {
     var coinName: String { get }
     var coinPrice: String { get }
     var coinChange: String { get }
+    var isChangeGrow: Bool { get }
     init(coin: Coin)
 }
 
@@ -25,6 +26,9 @@ class CoinTableViewCellModel: CoinCellViewModelProtocol {
     
     var coinChange: String {
         String(format: "%.2f", coin.data.market_data.percent_change_usd_last_1_hour) + " %"
+    }
+    var isChangeGrow: Bool {
+        coin.data.market_data.percent_change_usd_last_1_hour < 0 ? false : true
     }
     
     private let coin: Coin
