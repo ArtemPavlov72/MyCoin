@@ -10,7 +10,7 @@ import UIKit
 class RootViewController: UIViewController {
     
     //MARK: - Private Properties
-    private var viewModel: RootViewModelDelegate!
+    private var viewModel: RootViewModelDelegate?
     private var currentRootVC: UIViewController
     
     //MARK: - Init
@@ -33,7 +33,7 @@ class RootViewController: UIViewController {
     //MARK: - Public Methods
     func showLoginScreen() {
         let loginVC = LoginViewController()
-        loginVC.viewModel = viewModel.loginViewModel()
+        loginVC.viewModel = viewModel?.loginViewModel()
         
         let newVC = UINavigationController(rootViewController: loginVC)
         addChild(newVC)
@@ -48,7 +48,7 @@ class RootViewController: UIViewController {
     
     func switchToLogout() {
         let loginVC = LoginViewController()
-        loginVC.viewModel = viewModel.loginViewModel()
+        loginVC.viewModel = viewModel?.loginViewModel()
         
         let logoutScreen = UINavigationController(rootViewController: loginVC)
         animateTransition(to: logoutScreen, isLogout: true)
@@ -56,7 +56,7 @@ class RootViewController: UIViewController {
     
     func switchToMainScreen() {
         let mainViewController = CoinTableViewController()
-        mainViewController.viewModel = viewModel.coinTableViewModel()
+        mainViewController.viewModel = viewModel?.coinTableViewModel()
         let mainScreen = UINavigationController(rootViewController:  mainViewController)
         animateTransition(to: mainScreen, isLogout: false)
     }

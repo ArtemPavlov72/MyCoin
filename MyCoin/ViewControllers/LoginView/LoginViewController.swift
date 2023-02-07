@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     //MARK: - Public Properties
-    var viewModel: LoginViewModelProtocol!
+    var viewModel: LoginViewModelProtocol?
 
     //MARK: - Private Properties
     private lazy var nameTextField: UITextField = {
@@ -80,9 +80,9 @@ class LoginViewController: UIViewController {
         guard let inputNameText = nameTextField.text, !inputNameText.isEmpty else {return}
         guard let inputPasswordText = passwordTextField.text, !inputPasswordText.isEmpty else {return}
         
-        viewModel.enterButtonPressed(with: inputNameText, and: inputPasswordText) {
+        viewModel?.enterButtonPressed(with: inputNameText, and: inputPasswordText) {
             let coinTableVC = CoinTableViewController()
-            coinTableVC.viewModel = self.viewModel.coinTableViewModel()
+            coinTableVC.viewModel = self.viewModel?.coinTableViewModel()
         }
     }
 }

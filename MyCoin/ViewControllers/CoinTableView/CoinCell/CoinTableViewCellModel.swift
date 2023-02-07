@@ -17,18 +17,20 @@ protocol CoinCellViewModelProtocol {
 
 class CoinTableViewCellModel: CoinCellViewModelProtocol {
     var coinName: String {
-        coin.data.name
+        coin.data?.name ?? ""
     }
     
     var coinPrice: String {
-        formatNumber(number: coin.data.market_data.price_usd)
+        formatNumber(number: coin.data?.marketData?.priceUsd)
     }
     
     var coinChange: String {
-        String(format: "%.2f", coin.data.market_data.percent_change_usd_last_1_hour) + " %"
+        guard let coinChange = coin.data?.marketData?.percentChangeUsdLast1Hour else { return "" }
+        return String(format: "%.2f", coinChange) + " %"
     }
     var isChangeGrow: Bool {
-        coin.data.market_data.percent_change_usd_last_1_hour < 0 ? false : true
+        guard let coinChange = coin.data?.marketData?.percentChangeUsdLast1Hour else { return false }
+        return coinChange < 0 ? false : true
     }
     
     private let coin: Coin

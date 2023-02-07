@@ -15,7 +15,7 @@ class DataManager {
         "btc",
         "eth",
         "tron",
-        "luna",
+        "terra",
         "polkadot",
         "dogecoin",
         "tether",

@@ -7,26 +7,26 @@
 
 import Foundation
 
-struct Coin: Codable {
-    let data: CoinData
+struct Coin: Decodable {
+    let data: CoinData?
 }
 
-struct CoinData: Codable {
-    let symbol: String
-    let name: String
-    let market_data: MarketData
-    let marketcap: Marketcap
+struct CoinData: Decodable {
+    let symbol: String?
+    let name: String?
+    let marketData: MarketData?
+    let marketcap: Marketcap?
 }
 
-struct MarketData: Codable {
-    let price_usd: Double
-    let percent_change_usd_last_1_hour: Double
-    let percent_change_usd_last_24_hours: Double
+struct MarketData: Decodable {
+    let priceUsd: Double?
+    let percentChangeUsdLast1Hour: Double?
+    let percentChangeUsdLast24Hours: Double?
 }
 
-struct Marketcap: Codable {
-    let rank: Int
-    let current_marketcap_usd: Double
+struct Marketcap: Decodable {
+    let rank: Int?
+    let currentMarketcapUsd: Double?
 }
 
 enum Link: String {

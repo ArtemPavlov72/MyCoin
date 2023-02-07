@@ -25,9 +25,11 @@ class NetworkManager {
             }
             
             do {
-                let rickAndMorty = try JSONDecoder().decode(Coin.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let coin = try decoder.decode(Coin.self, from: data)
                 DispatchQueue.main.async {
-                    completion(.success(rickAndMorty))
+                    completion(.success(coin))
                 }
             } catch {
                 completion(.failure(.decodingError))

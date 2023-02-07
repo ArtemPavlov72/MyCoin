@@ -10,7 +10,7 @@ import UIKit
 class CoinDetailsViewController: UIViewController {
     
     //MARK: - Public Properties
-    var viewModel: CoinDetailsViewModelProtocol!
+    var viewModel: CoinDetailsViewModelProtocol?
     
     //MARK: - Private Properties
     private var coinSymbolLabel = UILabel()
@@ -97,31 +97,31 @@ class CoinDetailsViewController: UIViewController {
     
     //MARK: - Private Methods
     private func setupUI() {
-        coinSymbolLabel.text = viewModel.coinSymbol
+        coinSymbolLabel.text = viewModel?.coinSymbol
         coinSymbolLabel.font = UIFont.systemFont(ofSize: 14)
         
-        coinNameLabel.text = viewModel.coinName
+        coinNameLabel.text = viewModel?.coinName
         coinNameLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
         
-        coinPriceLabel.text = viewModel.coinPrice
+        coinPriceLabel.text = viewModel?.coinPrice
         coinPriceLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
         coinPriceLabel.textColor = .systemCyan
         
-        descriptionLabel.text = viewModel.description
+        descriptionLabel.text = viewModel?.description
         descriptionLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
         descriptionLabel.textAlignment = .left
         
-        rankLabel.text = viewModel.rank
-        coinRankInfoLabel.text = viewModel.coinRankInfo
+        rankLabel.text = viewModel?.rank
+        coinRankInfoLabel.text = viewModel?.coinRankInfo
         
-        marketCapLabel.text = viewModel.marketCap
-        marketCapInfoLabel.text = viewModel.marketCapInfo
+        marketCapLabel.text = viewModel?.marketCap
+        marketCapInfoLabel.text = viewModel?.marketCapInfo
         
-        change1hLabel.text = viewModel.coinChange1h
-        coinChange1hInfoLabel.text = viewModel.coinChange1hInfo
+        change1hLabel.text = viewModel?.coinChange1h
+        coinChange1hInfoLabel.text = viewModel?.coinChange1hInfo
         
-        change24hLabel.text = viewModel.coinChange24h
-        coinChange24hInfoLabel.text = viewModel.coinChange24hInfo
+        change24hLabel.text = viewModel?.coinChange24h
+        coinChange24hInfoLabel.text = viewModel?.coinChange24hInfo
     }
     
     private func setupSubViews(_ subViews: UIView...) {

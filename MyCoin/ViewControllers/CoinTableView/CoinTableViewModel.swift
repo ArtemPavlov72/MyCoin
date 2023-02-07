@@ -85,12 +85,12 @@ class CoinTableViewModel: CoinTableViewModelProtocol {
     private func getSortedCoins(from coins: [Coin]) -> [Coin] {
         let sortedCoins = filterButtonStatus
         ? coins.sorted {
-            $0.data.market_data.percent_change_usd_last_1_hour
-            > $1.data.market_data.percent_change_usd_last_1_hour
+            $0.data?.marketData?.percentChangeUsdLast1Hour ?? 0
+            > $1.data?.marketData?.percentChangeUsdLast1Hour ?? 0
         }
         : coins.sorted {
-            $0.data.market_data.percent_change_usd_last_1_hour
-            < $1.data.market_data.percent_change_usd_last_1_hour
+            $0.data?.marketData?.percentChangeUsdLast1Hour ?? 0
+            < $1.data?.marketData?.percentChangeUsdLast1Hour ?? 0
         }
         return sortedCoins
     }

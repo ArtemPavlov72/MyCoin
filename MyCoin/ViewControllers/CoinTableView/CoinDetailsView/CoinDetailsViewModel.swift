@@ -27,15 +27,15 @@ class CoinDetailsViewModel: CoinDetailsViewModelProtocol {
    
     //MARK: - Public Properties
     var coinSymbol: String {
-        coin.data.symbol
+        coin.data?.symbol ?? ""
     }
     
     var coinName: String {
-        coin.data.name
+        coin.data?.name ?? ""
     }
     
     var coinPrice: String {
-        formatNumber(number: coin.data.market_data.price_usd)
+        formatNumber(number: coin.data?.marketData?.priceUsd)
     }
     
     var description: String {
@@ -47,7 +47,7 @@ class CoinDetailsViewModel: CoinDetailsViewModelProtocol {
     }
     
     var coinRankInfo: String {
-        coin.data.marketcap.rank.description
+        coin.data?.marketcap?.rank?.description ?? ""
     }
     
     var marketCap: String {
@@ -56,7 +56,7 @@ class CoinDetailsViewModel: CoinDetailsViewModelProtocol {
     
     var marketCapInfo: String {
         formatNumber(
-            number: coin.data.marketcap.current_marketcap_usd,
+            number: coin.data?.marketcap?.currentMarketcapUsd,
             fixLenght: false
         )
     }
@@ -66,10 +66,8 @@ class CoinDetailsViewModel: CoinDetailsViewModelProtocol {
     }
     
     var coinChange1hInfo: String {
-        String(
-            format: "%.2f",
-            coin.data.market_data.percent_change_usd_last_1_hour
-        ) + " %"
+        guard let coinChange = coin.data?.marketData?.percentChangeUsdLast1Hour else { return ""}
+        return String(format: "%.2f", coinChange) + " %"
     }
     
     var coinChange24h: String {
@@ -77,10 +75,8 @@ class CoinDetailsViewModel: CoinDetailsViewModelProtocol {
     }
     
     var coinChange24hInfo: String {
-        String(
-            format: "%.2f",
-            coin.data.market_data.percent_change_usd_last_24_hours
-        ) + " %"
+        guard let coinChange = coin.data?.marketData?.percentChangeUsdLast24Hours else { return ""}
+        return String(format: "%.2f", coinChange) + " %"
     }
     
     required init(coin: Coin) {

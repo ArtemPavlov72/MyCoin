@@ -10,7 +10,7 @@ import UIKit
 class CoinTableViewController: UITableViewController {
     
     //MARK: - Public Properties
-    var viewModel: CoinTableViewModelProtocol!
+    var viewModel: CoinTableViewModelProtocol?
     
     //MARK: - Private Properties
     private var spinnerView: UIActivityIndicatorView?
@@ -33,11 +33,11 @@ class CoinTableViewController: UITableViewController {
     }
     
     private func setupUI() {
-        viewModel.viewModelDidChange = { [weak self] viewModel in
+        viewModel?.viewModelDidChange = { [weak self] viewModel in
             self?.setTitleForFilterButton()
             self?.tableView.reloadData()
         }
-        viewModel.fetchCoins {
+        viewModel?.fetchCoins {
             self.spinnerView?.stopAnimating()
             self.tableView.reloadData()
         }
@@ -54,8 +54,10 @@ class CoinTableViewController: UITableViewController {
             action: #selector(logOut)
         )
         
+        guard let filterButtonStatus = viewModel?.filterButtonStatus else { return }
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: viewModel.filterButtonStatus ? "Filter Down" : "Filter Up",
+            title: filterButtonStatus ? "Filter Down" : "Filter Up",
             style: .plain,
             target: self,
             action: #selector(changeFilterStatus)
@@ -72,34 +74,36 @@ class CoinTableViewController: UITableViewController {
     }
     
     private func setTitleForFilterButton() {
-        navigationItem.rightBarButtonItem?.title = viewModel.filterButtonStatus
+        guard let filterButtonStatus = viewModel?.filterButtonStatus else { return }
+        navigationItem.rightBarButtonItem?.title = filterButtonStatus
         ? "Filter Down"
         : "Filter Up"
     }
     
     @objc private func logOut() {
-        viewModel.logoutButtonPressed()
+        viewModel?.logoutButtonPressed()
     }
     
     @objc private func changeFilterStatus() {
-        viewModel.filterButtonPressed()
+        viewModel?.filterButtonPressed()
     }
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfRows()
+        guard let numberOfRows = viewModel?.numberOfRows() else { return 0}
+        return numberOfRows
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CoinTableViewCell.reuseId, for: indexPath) as? CoinTableViewCell else { return  CoinTableViewCell() }
-        cell.viewModel = viewModel.cellViewModel(at: indexPath)
+        cell.viewModel = viewModel?.cellViewModel(at: indexPath)
         return cell
     }
     
     //MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let coinDetailsViewModel = viewModel.coinDetailsViewModel(at: indexPath)
+        let coinDetailsViewModel = viewModel?.coinDetailsViewModel(at: indexPath)
         let coinDetailsViewController = CoinDetailsViewController()
         coinDetailsViewController.viewModel = coinDetailsViewModel
         show(coinDetailsViewController, sender: nil)

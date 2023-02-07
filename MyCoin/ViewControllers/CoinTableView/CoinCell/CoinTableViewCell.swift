@@ -32,12 +32,13 @@ class CoinTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    var viewModel: CoinCellViewModelProtocol! {
+    var viewModel: CoinCellViewModelProtocol? {
         didSet {
-            coinNameLabel.text = viewModel.coinName
-            coinPriceLabel.text = viewModel.coinPrice
-            coinChangeLabel.text = viewModel.coinChange
-            coinChangeLabel.textColor = viewModel.isChangeGrow ? .systemGreen : .systemRed
+            coinNameLabel.text = viewModel?.coinName
+            coinPriceLabel.text = viewModel?.coinPrice
+            coinChangeLabel.text = viewModel?.coinChange
+            guard let isChangeGrow = viewModel?.isChangeGrow else { return }
+            coinChangeLabel.textColor = isChangeGrow ? .systemGreen : .systemRed
         }
     }
     
