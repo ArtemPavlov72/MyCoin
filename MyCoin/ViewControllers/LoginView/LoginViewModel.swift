@@ -16,8 +16,8 @@ class LoginViewViewModel: LoginViewModelProtocol {
     
     func enterButtonPressed(with name: String, and password: String, completion: @escaping () -> Void) {
         let nameTrimmingText = name.trimmingCharacters(in: .whitespaces)
-        guard nameTrimmingText == DataManager.shared.fakeUser.name else { return }
-        guard password == DataManager.shared.fakeUser.password else { return }
+        guard nameTrimmingText == DataManager.shared.getfakeUserName() else { return }
+        guard password == DataManager.shared.getFakeUserPassword() else { return }
         completion()
         
         let user = User(

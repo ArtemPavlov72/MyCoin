@@ -29,4 +29,9 @@ struct Marketcap: Codable {
     let current_marketcap_usd: Double
 }
 
+enum Link: String {
+    case baseUrl = "https://data.messari.io/api/v1/assets/"
+    case metrics = "/metrics"
+}
+
 

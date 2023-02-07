@@ -8,14 +8,10 @@
 import Foundation
 
 class DataManager {
-    
     static let shared = DataManager()
-    private init() {}
     
-    let fakeUser = User(name: "1234", password: "1234", isRegistered: true)
-    //private let url = "https://data.messari.io/api/v1/assets/btc/metrics"
-    
-    let coins = [
+    private let fakeUser = User(name: "1234", password: "1234", isRegistered: true)
+    private let coins = [
         "btc",
         "eth",
         "tron",
@@ -28,7 +24,9 @@ class DataManager {
         "xrp"
     ]
     
-    func getURL() -> [String] {
+    private init() {}
+    
+    func getURLs() -> [String] {
         var urls: [String] = []
         
         for coin in coins {
@@ -37,12 +35,12 @@ class DataManager {
         }
         return urls
     }
-}
-
-extension DataManager {
-    enum Link: String {
-        case baseUrl = "https://data.messari.io/api/v1/assets/"
-        case metrics = "/metrics"
+    
+    func getfakeUserName() -> String {
+        fakeUser.name
+    }
+    
+    func getFakeUserPassword() -> String {
+        fakeUser.password
     }
 }
-

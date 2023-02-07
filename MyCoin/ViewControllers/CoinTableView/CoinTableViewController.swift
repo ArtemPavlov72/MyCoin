@@ -10,14 +10,7 @@ import UIKit
 class CoinTableViewController: UITableViewController {
     
     //MARK: - Public Properties
-    var viewModel: CoinTableViewModelProtocol! {
-        didSet {
-            viewModel.fetchCoins {
-                self.spinnerView?.stopAnimating()
-                self.tableView.reloadData()
-            }
-        }
-    }
+    var viewModel: CoinTableViewModelProtocol!
     
     //MARK: - Private Properties
     private var spinnerView: UIActivityIndicatorView?
@@ -27,6 +20,7 @@ class CoinTableViewController: UITableViewController {
         super.viewDidLoad()
         setupTableView()
         setupNavigationBar()
+        setupUI()
         guard let navigationController = navigationController else { return }
         spinnerView = showSpinner(in: navigationController.view)
     }
@@ -36,6 +30,17 @@ class CoinTableViewController: UITableViewController {
         tableView.backgroundColor = .systemBackground
         tableView.rowHeight = 70
         tableView.register(CoinTableViewCell.self, forCellReuseIdentifier: CoinTableViewCell.reuseId)
+    }
+    
+    private func setupUI() {
+        viewModel.viewModelDidChange = { [weak self] viewModel in
+            self?.setTitleForFilterButton()
+            self?.tableView.reloadData()
+        }
+        viewModel.fetchCoins {
+            self.spinnerView?.stopAnimating()
+            self.tableView.reloadData()
+        }
     }
     
     private func setupNavigationBar() {
@@ -48,6 +53,13 @@ class CoinTableViewController: UITableViewController {
             target: self,
             action: #selector(logOut)
         )
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: viewModel.filterButtonStatus ? "Filter Down" : "Filter Up",
+            style: .plain,
+            target: self,
+            action: #selector(changeFilterStatus)
+        )
     }
     
     private func showSpinner(in view: UIView) -> UIActivityIndicatorView {
@@ -59,8 +71,18 @@ class CoinTableViewController: UITableViewController {
         return activityIndicator
     }
     
+    private func setTitleForFilterButton() {
+        navigationItem.rightBarButtonItem?.title = viewModel.filterButtonStatus
+        ? "Filter Down"
+        : "Filter Up"
+    }
+    
     @objc private func logOut() {
         viewModel.logoutButtonPressed()
+    }
+    
+    @objc private func changeFilterStatus() {
+        viewModel.filterButtonPressed()
     }
     
     // MARK: - Table view data source
