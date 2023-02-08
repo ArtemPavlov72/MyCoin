@@ -8,21 +8,25 @@
 import Foundation
 
 protocol LoginViewModelProtocol {
-    func enterButtonPressed(with name: String, and password: String, completion: @escaping () -> Void)
+    func enterButtonPressed(with name: String?, and password: String?, completion: @escaping () -> Void)
     func coinTableViewModel() -> CoinTableViewModelProtocol
 }
 
 class LoginViewViewModel: LoginViewModelProtocol {
     
-    func enterButtonPressed(with name: String, and password: String, completion: @escaping () -> Void) {
-        let nameTrimmingText = name.trimmingCharacters(in: .whitespaces)
+    func enterButtonPressed(with name: String?, and password: String?, completion: @escaping () -> Void) {
+        guard let inputNameText = name, !inputNameText.isEmpty else { return }
+        let nameTrimmingText = inputNameText.trimmingCharacters(in: .whitespaces)
         guard nameTrimmingText == DataManager.shared.getfakeUserName() else { return }
-        guard password == DataManager.shared.getFakeUserPassword() else { return }
+       
+        guard let inputPasswordText = password, !inputPasswordText.isEmpty else { return }
+        guard inputPasswordText == DataManager.shared.getFakeUserPassword() else { return }
+       
         completion()
         
         let user = User(
-            name: name,
-            password: password,
+            name: nameTrimmingText,
+            password: inputPasswordText,
             isRegistered: true
         )
         UserManager.shared.save(user: user)

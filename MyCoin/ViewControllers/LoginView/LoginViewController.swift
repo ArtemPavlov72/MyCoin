@@ -11,7 +11,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - Public Properties
     var viewModel: LoginViewModelProtocol?
-
+    
     //MARK: - Private Properties
     private lazy var nameTextField: UITextField = {
         let name = UITextField()
@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
         setupSubViews(verticalStackView)
         setupConstraints()
     }
-
+    
     //MARK: - Private Methods
     private func setupSubViews(_ subViews: UIView...) {
         subViews.forEach { subview in
@@ -75,12 +75,8 @@ class LoginViewController: UIViewController {
         ])
     }
     
-    //добавить алерт при проверке имени и пароля
     @objc private func enterButtonTapped() {
-        guard let inputNameText = nameTextField.text, !inputNameText.isEmpty else {return}
-        guard let inputPasswordText = passwordTextField.text, !inputPasswordText.isEmpty else {return}
-        
-        viewModel?.enterButtonPressed(with: inputNameText, and: inputPasswordText) {
+        viewModel?.enterButtonPressed(with: nameTextField.text, and: passwordTextField.text) {
             let coinTableVC = CoinTableViewController()
             coinTableVC.viewModel = self.viewModel?.coinTableViewModel()
         }
