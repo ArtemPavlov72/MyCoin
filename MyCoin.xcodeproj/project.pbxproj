@@ -24,6 +24,7 @@
 		AC8939AC2986963C00219844 /* CoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939AB2986963C00219844 /* CoinDetailsViewController.swift */; };
 		AC8939B2298CEFDB00219844 /* CoinTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939B1298CEFDB00219844 /* CoinTableViewCellModel.swift */; };
 		AC8939B5298EB56B00219844 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939B4298EB56B00219844 /* CoinDetailsViewModel.swift */; };
+		AC8939B729941D0900219844 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8939B629941D0900219844 /* Alert.swift */; };
 		ACD4D9C8296F244500A12A8C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D9C7296F244500A12A8C /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		AC8939AB2986963C00219844 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
 		AC8939B1298CEFDB00219844 /* CoinTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCellModel.swift; sourceTree = "<group>"; };
 		AC8939B4298EB56B00219844 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
+		AC8939B629941D0900219844 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		ACD4D9C7296F244500A12A8C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				AC01B7A0296D04B6004D3FC0 /* ViewControllers */,
+				AC8939B8299574AA00219844 /* Helpers */,
 				AC01B7A7296D2F38004D3FC0 /* Services */,
 				AC01B7A4296D2EC9004D3FC0 /* Models */,
 				AC01B7A1296D04E4004D3FC0 /* Resources */,
@@ -183,6 +186,14 @@
 			path = CoinCell;
 			sourceTree = "<group>";
 		};
+		AC8939B8299574AA00219844 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AC8939B629941D0900219844 /* Alert.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,6 +267,7 @@
 				AC01B7B6296E8217004D3FC0 /* RootViewModel.swift in Sources */,
 				ACD4D9C8296F244500A12A8C /* DataManager.swift in Sources */,
 				AC8939AC2986963C00219844 /* CoinDetailsViewController.swift in Sources */,
+				AC8939B729941D0900219844 /* Alert.swift in Sources */,
 				AC01B7A6296D2F28004D3FC0 /* NetworkManager.swift in Sources */,
 				AC8939B2298CEFDB00219844 /* CoinTableViewCellModel.swift in Sources */,
 				AC01B7A3296D2EB7004D3FC0 /* Coin.swift in Sources */,

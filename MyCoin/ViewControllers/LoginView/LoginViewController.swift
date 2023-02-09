@@ -11,7 +11,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - Public Properties
     var viewModel: LoginViewModelProtocol?
-    
+
     //MARK: - Private Properties
     private lazy var nameTextField: UITextField = {
         let name = UITextField()
@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
         setupSubViews(verticalStackView)
         setupConstraints()
     }
-    
+
     //MARK: - Private Methods
     private func setupSubViews(_ subViews: UIView...) {
         subViews.forEach { subview in
@@ -76,9 +76,27 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func enterButtonTapped() {
-        viewModel?.enterButtonPressed(with: nameTextField.text, and: passwordTextField.text) {
-            let coinTableVC = CoinTableViewController()
-            coinTableVC.viewModel = self.viewModel?.coinTableViewModel()
+        viewModel?.enterButtonPressed(with: nameTextField.text, and: passwordTextField.text) { result in
+            switch result {
+            case .success(let coinTableViewModel):
+                let coinTableVC = CoinTableViewController()
+                coinTableVC.viewModel = coinTableViewModel
+            case .failure(let alertError):
+                switch alertError {
+                case .noName:
+                    let alert = self.viewModel?.alertViewModel(with: .noName)
+                    alert?.showAlert(in: self)
+                case .wrongName:
+                    let alert = self.viewModel?.alertViewModel(with: .wrongName)
+                    alert?.showAlert(in: self)
+                case .noPassword:
+                    let alert = self.viewModel?.alertViewModel(with: .noPassword)
+                    alert?.showAlert(in: self)
+                case .wrongPassword:
+                    let alert = self.viewModel?.alertViewModel(with: .wrongPassword)
+                    alert?.showAlert(in: self)
+                }
+            }
         }
     }
 }
