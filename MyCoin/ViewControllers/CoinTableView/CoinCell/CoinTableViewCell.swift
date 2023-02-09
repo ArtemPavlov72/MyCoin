@@ -56,7 +56,7 @@ class CoinTableViewCell: UITableViewCell {
     //MARK: - Private Methods
     private func setupSubViews(_ subViews: UIView...) {
         subViews.forEach { subview in
-            self.addSubview(subview)
+            addSubview(subview)
             subview.translatesAutoresizingMaskIntoConstraints = false
         }
     }
