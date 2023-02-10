@@ -88,14 +88,11 @@ class LoginViewController: UIViewController {
                 case .noName:
                     let alert = self.viewModel?.alertViewModel(with: .noName)
                     alert?.showAlert(in: self)
-                case .wrongName:
-                    let alert = self.viewModel?.alertViewModel(with: .wrongName)
-                    alert?.showAlert(in: self)
                 case .noPassword:
                     let alert = self.viewModel?.alertViewModel(with: .noPassword)
                     alert?.showAlert(in: self)
-                case .wrongPassword:
-                    let alert = self.viewModel?.alertViewModel(with: .wrongPassword)
+                case .wrongUserData:
+                    let alert = self.viewModel?.alertViewModel(with: .wrongUserData)
                     alert?.showAlert(in: self)
                 }
             }

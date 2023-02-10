@@ -32,7 +32,6 @@ class AlertController: AlertViewModelProtocol {
 
 enum AlertError: Error {
     case noName
-    case wrongName
     case noPassword
-    case wrongPassword
+    case wrongUserData
 }
